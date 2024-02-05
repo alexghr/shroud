@@ -1,10 +1,9 @@
 {
-  inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    flake-parts.url = "github:hercules-ci/flake-parts";
-  };
+  description = "A tool for building Noir applications with Nix";
 
-  outputs = inputs@{ flake-parts, ... }: {
+  inputs = {};
+
+  outputs = { ... }: {
     mkLib = { nargo, pkgs }: {
       buildNoirPackage = pkgs.callPackage ./buildNoirPackage.nix { inherit nargo; };
     };
