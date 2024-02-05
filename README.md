@@ -16,7 +16,7 @@ Here's how you'd use it inside flake.nix:
     noir.url = "github:noir-lang/noir/v0.22.0";
   };
 
-  outputs = { nixpkgs, shroud }:
+  outputs = { nixpkgs, shroud, noir, ... }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -33,4 +33,4 @@ Here's how you'd use it inside flake.nix:
 }
 ```
 
-Building with `nix build .#my_circuit` would make the JSON artifact available as in `./result`.
+Building with `nix build .#my_circuit` would make the JSON artifact available in `./result`.
